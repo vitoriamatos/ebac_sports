@@ -18,7 +18,7 @@ function App() {
   const [favoritos, setFavoritos] = useState<Produto[]>([])
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/ebac_sports')
+    fetch('/ebac_sports')
       .then((res) => res.json())
       .then((res) => setProdutos(res))
   }, [])
@@ -36,12 +36,8 @@ function App() {
     <Provider store={store}>
       <GlobalStyle />
       <div className="container">
-        <Header favoritos={favoritos} />
-        <Produtos
-          produtos={produtos}
-          favoritos={favoritos}
-          favoritar={favoritar}
-        />
+        <Header />
+        <Produtos />
       </div>
     </Provider>
   )
